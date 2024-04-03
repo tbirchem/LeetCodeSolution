@@ -1,0 +1,16 @@
+class Solution(object):
+    def sortColors(self, nums):
+        last = 0
+
+        for i in range(3):
+            for j in range(last, len(nums), 1):
+                temp = nums[j]
+                if temp == i:
+                    nums[j] = nums[last]
+                    nums[last] = temp
+                    last += 1
+        return nums
+        """
+        :type nums: List[int]
+        :rtype: None Do not return anything, modify nums in-place instead.
+        """
