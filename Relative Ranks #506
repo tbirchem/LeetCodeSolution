@@ -1,0 +1,23 @@
+class Solution(object):
+    def findRelativeRanks(self, score):
+        ans = [k for k in score]
+        score.sort(reverse=True)
+        count = 0
+
+        for i in range(len(score)):
+            count += 1
+            if count > 3:
+                ans[ans.index(score[i])] = str(count)
+            elif count == 1:
+                ans[ans.index(score[i])] = "Gold Medal"
+            elif count == 2:
+                ans[ans.index(score[i])] = "Silver Medal"
+            elif count == 3:
+                ans[ans.index(score[i])] = "Bronze Medal"
+        return ans
+
+        """
+        :type score: List[int]
+        :rtype: List[str]
+        """
+        
